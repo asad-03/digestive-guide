@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sunnah-based digestive health guide for Lahore">
+    <title>Sunnah Digestive Guide - Lahore</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #fef3c7 0%, #dcfce7 50%, #fef3c7 100%);
+            color: #333;
+        }
+        
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            border-bottom: 2px solid #86efac;
+            padding: 20px 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #166534;
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+        
+        .date {
+            color: #65a30d;
+            font-size: 12px;
+        }
+        
+        .tabs {
+            position: sticky;
+            top: 70px;
+            z-index: 99;
+            background: white;
+            border-bottom: 1px solid #dcfce7;
+            display: flex;
+            overflow-x: auto;
+            gap: 4px;
+            padding: 8px;
+        }
+        
+        .tab-btn {
+            flex-shrink: 0;
+            padding: 12px 16px;
+            border: none;
+            background: none;
+            color: #999;
+            font-weight: 500;
+            font-size: 13px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        
+        .tab-btn.active {
+            color: #166534;
+            border-bottom-color: #166534;
+        }
+        
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 24px 16px 100px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .info-box {
+            background: #dcfce7;
+            border: 1px solid #86efac;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #166534;
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid #dcfce7;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #dcfce7, #fef3c7);
+            padding: 12px 16px;
+            border-bottom: 1px solid #dcfce7;
+        }
+        
+        .card-header h3 {
+            color: #166534;
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+        
+        .card-header p {
+            color: #65a30d;
+            font-size: 12px;
+        }
+        
+        .card-body {
+            padding: 12px 16px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .card-body div {
+            margin-bottom: 8px;
+        }
+        
+        .tip-box {
+            background: #fef3c7;
+            border-radius: 6px;
+            padding: 8px;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #92400e;
+        }
+        
+        .textarea-field {
+            margin-bottom: 16px;
+        }
+        
+        .textarea-field label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: none;
+            -webkit-appearance: none;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #22c55e;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-save {
+            background: #22c55e;
+            color: white;
+        }
+        
+        .btn-save:active {
+            background: #16a34a;
+        }
+        
+        .btn-clear {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        
+        .btn-clear:active {
+            background: #fecaca;
+        }
+        
+        .success {
+            background: #dcfce7;
+            border: 1px solid #86efac;
+            color: #166534;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            font-size: 13px;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .market-info {
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #1e40af;
+        }
+        
+        .meal-day {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sunnah Digestive</h1>
+        <div class="date" id="dateDisplay"></div>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('daily')">📅 Daily</button>
+        <button class="tab-btn" onclick="switchTab('meals')">🍽️ Meals</button>
+        <button class="tab-btn" onclick="switchTab('markets')">🛒 Buy</button>
+        <button class="tab-btn" onclick="switchTab('tracking')">📝 Notes</button>
+        <button class="tab-btn" onclick="switchTab('tips')">💡 Tips</button>
+    </div>
+
+    <div class="content">
+        <!-- DAILY SCHEDULE -->
+        <div id="daily" class="tab-content active">
+            <div class="info-box">Each prayer time = eating/drinking cue</div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Fajr (Pre-dawn)</h3>
+                </div>
+                <div class="card-body">
+                    <div><strong>🍴 Food:</strong> 1-3 khajoor + honey water</div>
+                    <div><strong>💧 Drink:</strong> Shahad pani (lukewarm)</div>
+                    <div class="tip-box">💡 Eat slowly; chew 30+ times</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>After Fajr (1-2 hrs later)</h3>
+                </div>
+                <div class="card-body">
+                    <div><strong>🍴 Food:</strong> Dahi + khajoor OR Jau ka daliya</div>
+                    <div><strong>💧 Drink:</strong> Sips of water</div>
+                    <div class="tip-box">💡 Barley is cooling & digestive</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Mid-morning</h3>
+                </div>
+                <div class="card-body">
+                    <div><strong>🍴 Food:</strong> Rest (no food)</div>
+                    <div><strong>💧 Drink:</strong> Water only (sips)</div>
+                    <div class="tip-box">💡 Let Fajr meal digest</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Dhuhr (Noon)</h3>
+                </div>
+                <div class="card-body">
+                    <div><strong>🍴 Food:</strong> Kheera + Chawal + Dahi</div>
+                    <div><strong>💧 Drink:</strong> Water (after 30 mins)</div>
+                    <div class="tip-box">💡 Light lunch. Eat 1/3 full</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Post-Dhuhr (2-3 hrs)</h3>
+                </div>
+                <div class="card-body">
+                    <div><strong>🍴 Food:</strong> Rest</div>
+                    <div><strong>💧 Drink:</strong> Adrak chai OR Podina pani</div>
+                    <div class="tip-box">💡 Ginger aids digestion; mint soothes</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Asr (Late afternoon)</h3>
+                </div>
+                <div class="card-body">
+                    <div><strong>🍴 Food:</strong> 2-3 khajoor</div>
+                    <div><strong>💧 Drink:</strong> Saunf pani (fennel water)</div>
+                    <div class="tip-box">💡 KEY: Reduces gas & bloating</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Maghrib (Sunset)</h3>
+                </div>
+                <div class="card-body">
+                    <div><strong>🍴 Food:</strong> Date + small cup milk</div>
+                    <div><strong>💧 Drink:</strong> Milk or water</div>
+                    <div class="tip-box">💡 Aids nutrient absorption</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>After Maghrib (1-2 hrs)</h3>
+                </div>
+                <div class="card-body">
+                    <div><strong>🍴 Food:</strong> MAIN MEAL: Daal + Roti + Sabzi</div>
+                    <div><strong>💧 Drink:</strong> Small sips of water</div>
+                    <div class="tip-box">💡 Largest meal of day. Eat slowly!</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Isha (Night)</h3>
+                </div>
+                <div class="card-body">
+                    <div><strong>🍴 Food:</strong> Herbal tea only</div>
+                    <div><strong>💧 Drink:</strong> Podina chai (mint tea)</div>
+                    <div class="tip-box">💡 Aids digestion & sleep</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Before Sleep (3-4 hrs after meal)</h3>
+                </div>
+                <div class="card-body">
+                    <div><strong>🍴 Food:</strong> Nothing</div>
+                    <div><strong>💧 Drink:</strong> Water only if thirsty</div>
+                    <div class="tip-box">💡 Empty stomach = better digestion</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WEEKLY MEALS -->
+        <div id="meals" class="tab-content">
+            <div class="info-box">Rotate these meals weekly. Use Lahore local foods.</div>
+
+            <div class="card">
+                <div class="card-header"><h3>Monday</h3></div>
+                <div class="card-body meal-day">
+                    <div><strong>🌅 Breakfast:</strong> Dahi + 3-4 khajoor + honey</div>
+                    <div><strong>☀️ Lunch:</strong> Chawal + Saag + Dahi</div>
+                    <div><strong>🌙 Dinner:</strong> Masoor ki daal + Roti</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Tuesday</h3></div>
+                <div class="card-body meal-day">
+                    <div><strong>🌅 Breakfast:</strong> Dahi + khajoor + toast</div>
+                    <div><strong>☀️ Lunch:</strong> Kheera + Tamatar + Ande + Chawal</div>
+                    <div><strong>🌙 Dinner:</strong> Channa daal + Saag</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Wednesday</h3></div>
+                <div class="card-body meal-day">
+                    <div><strong>🌅 Breakfast:</strong> Jau ka daliya + khajoor</div>
+                    <div><strong>☀️ Lunch:</strong> Jau pani + Sabzi + Paneer</div>
+                    <div><strong>🌙 Dinner:</strong> Moong daal + Roti</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Thursday</h3></div>
+                <div class="card-body meal-day">
+                    <div><strong>🌅 Breakfast:</strong> Doodh + khajoor + honey</div>
+                    <div><strong>☀️ Lunch:</strong> Sabzi + Chawal + Dahi</div>
+                    <div><strong>🌙 Dinner:</strong> Lobia qorma + Roti</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Friday</h3></div>
+                <div class="card-body meal-day">
+                    <div><strong>🌅 Breakfast:</strong> Jau ka daliya + dahi</div>
+                    <div><strong>☀️ Lunch:</strong> Daal shorba + Chawal</div>
+                    <div><strong>🌙 Dinner:</strong> Masoor daal + Palak</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Saturday</h3></div>
+                <div class="card-body meal-day">
+                    <div><strong>🌅 Breakfast:</strong> Khajoor + shahad pani</div>
+                    <div><strong>☀️ Lunch:</strong> Kheera + Tamatar + Chawal</div>
+                    <div><strong>🌙 Dinner:</strong> Murgh (light) + Roti</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Sunday</h3></div>
+                <div class="card-body meal-day">
+                    <div><strong>🌅 Breakfast:</strong> Dahi + jau + khajoor</div>
+                    <div><strong>☀️ Lunch:</strong> Sabzi ka chawal</div>
+                    <div><strong>🌙 Dinner:</strong> Sabzi qorma + Roti</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MARKETS -->
+        <div id="markets" class="tab-content">
+            <div class="market-info">
+                <strong>📍 Best Market Days:</strong><br>
+                • <strong>Kisan Bazaar</strong> (Thokar): Wed & Sat mornings<br>
+                • <strong>Sabzi Mandi</strong>: 5-8am daily<br>
+                • <strong>Doodhwala:</strong> 6-8am daily
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Khajoor (Dates)</h3></div>
+                <div class="card-body">
+                    <div><strong>📍 Where:</strong> Urdu Bazaar, Anarkali</div>
+                    <div><strong>💰 Cost:</strong> 200-300/kg</div>
+                    <div><strong>💡 Tip:</strong> Buy in bulk June-August</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Shahad (Fresh Honey)</h3></div>
+                <div class="card-body">
+                    <div><strong>📍 Where:</strong> Health shops, Packages Mall</div>
+                    <div><strong>💰 Cost:</strong> 500-800/bottle</div>
+                    <div><strong>💡 Tip:</strong> Direct from Sialkot keepers</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Jau (Barley)</h3></div>
+                <div class="card-body">
+                    <div><strong>📍 Where:</strong> Kisan Bazaar, grain shops</div>
+                    <div><strong>💰 Cost:</strong> 80-120/kg</div>
+                    <div><strong>💡 Tip:</strong> Buy unpolished</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Fresh Dahi (Yogurt)</h3></div>
+                <div class="card-body">
+                    <div><strong>📍 Where:</strong> Neighborhood doodhwala</div>
+                    <div><strong>💰 Cost:</strong> 100-150/liter</div>
+                    <div><strong>💡 Tip:</strong> Order daily delivery</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Podina (Fresh Mint)</h3></div>
+                <div class="card-body">
+                    <div><strong>📍 Where:</strong> Sabzi Mandi</div>
+                    <div><strong>💰 Cost:</strong> 20-40/bunch</div>
+                    <div><strong>💡 Tip:</strong> Fresh Wed-Sat</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Adrak (Fresh Ginger)</h3></div>
+                <div class="card-body">
+                    <div><strong>📍 Where:</strong> Sabzi Mandi</div>
+                    <div><strong>💰 Cost:</strong> 50-80/kg</div>
+                    <div><strong>💡 Tip:</strong> Available year-round</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Masoor Daal</h3></div>
+                <div class="card-body">
+                    <div><strong>📍 Where:</strong> Dal shops, Kisan Bazaar</div>
+                    <div><strong>💰 Cost:</strong> 150-200/kg</div>
+                    <div><strong>💡 Tip:</strong> Buy in bulk (25kg bags)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRACKING NOTES -->
+        <div id="tracking" class="tab-content">
+            <div id="successMsg" class="success" style="display: none;">✅ Notes saved!</div>
+
+            <div class="textarea-field">
+                <label>🚩 My Biggest Triggers</label>
+                <textarea id="triggers" placeholder="E.g., bazaar fried foods, spicy curries..."></textarea>
+            </div>
+
+            <div class="textarea-field">
+                <label>✅ My Best Meals</label>
+                <textarea id="bestMeals" placeholder="E.g., Dahi + Jau + Kheera..."></textarea>
+            </div>
+
+            <div class="textarea-field">
+                <label>⏰ Times I Feel Best</label>
+                <textarea id="bestTimes" placeholder="E.g., morning, after Fajr, evening..."></textarea>
+            </div>
+
+            <div class="textarea-field">
+                <label>☀️ How Weather Affects Me</label>
+                <textarea id="weatherImpact" placeholder="E.g., summer = worst, winter = best..."></textarea>
+            </div>
+
+            <div class="textarea-field">
+                <label>💊 Local Remedies That Work</label>
+                <textarea id="localRemedies" placeholder="E.g., Podina chai helps bloating..."></textarea>
+            </div>
+
+            <div class="textarea-field">
+                <label>❌ Foods to Avoid</label>
+                <textarea id="avoidFoods" placeholder="E.g., chaat, samosas, cold water..."></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-save" onclick="saveNotes()">💾 Save All</button>
+                <button class="btn-clear" onclick="clearNotes()">🗑️ Clear</button>
+            </div>
+        </div>
+
+        <!-- TIPS -->
+        <div id="tips" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3>🔥 May 15 - Aug 31</h3>
+                    <p>HARDEST SEASON</p>
+                </div>
+                <div class="card-body">
+                    Lightest eating. Eat ONLY early morning (before 8am) & after sunset. Maximum hydration with Shahad pani, Saunf pani, Podina chai.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>✅ Dec 15 - Feb 28</h3>
+                    <p>BEST SEASON</p>
+                </div>
+                <div class="card-body">
+                    Can eat normally. Saag & Sarso at peak (cheapest). Enjoy root vegetables. Winter = best digestion.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>⚡ Sept-Nov & Mar-Apr</h3>
+                    <p>TRANSITION MONTHS</p>
+                </div>
+                <div class="card-body">
+                    Gradually adjust portions as weather changes. Recovery period - good time to reset digestion.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>⚠️ When to See a Hakim</h3>
+                </div>
+                <div class="card-body">
+                    If bloating/gas/cramping persists <strong>beyond 2 weeks</strong> of following this plan → consult a Hakim (Unani practitioner) in Anarkali area. They specialize in heat-related digestion issues.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Give it 4 weeks for results • Your notes auto-save locally
+    </footer>
+
+    <script>
+        function setDate() {
+            const options = { weekday: 'long', month: 'short', day: 'numeric' };
+            const today = new Date().toLocaleDateString('en-PK', options);
+            document.getElementById('dateDisplay').textContent = 'Lahore • ' + today;
+        }
+
+        function switchTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            if (tabName === 'tracking') {
+                loadNotes();
+            }
+        }
+
+        function saveNotes() {
+            const notes = {
+                triggers: document.getElementById('triggers').value,
+                bestMeals: document.getElementById('bestMeals').value,
+                bestTimes: document.getElementById('bestTimes').value,
+                weatherImpact: document.getElementById('weatherImpact').value,
+                localRemedies: document.getElementById('localRemedies').value,
+                avoidFoods: document.getElementById('avoidFoods').value,
+            };
+            
+            localStorage.setItem('digestiveNotes', JSON.stringify(notes));
+            
+            const msg = document.getElementById('successMsg');
+            msg.style.display = 'block';
+            setTimeout(() => {
+                msg.style.display = 'none';
+            }, 2000);
+        }
+
+        function loadNotes() {
+            const saved = localStorage.getItem('digestiveNotes');
+            if (saved) {
+                const notes = JSON.parse(saved);
+                document.getElementById('triggers').value = notes.triggers || '';
+                document.getElementById('bestMeals').value = notes.bestMeals || '';
+                document.getElementById('bestTimes').value = notes.bestTimes || '';
+                document.getElementById('weatherImpact').value = notes.weatherImpact || '';
+                document.getElementById('localRemedies').value = notes.localRemedies || '';
+                document.getElementById('avoidFoods').value = notes.avoidFoods || '';
+            }
+        }
+
+        function clearNotes() {
+            if (confirm('Clear all notes?')) {
+                localStorage.removeItem('digestiveNotes');
+                document.getElementById('triggers').value = '';
+                document.getElementById('bestMeals').value = '';
+                document.getElementById('bestTimes').value = '';
+                document.getElementById('weatherImpact').value = '';
+                document.getElementById('localRemedies').value = '';
+                document.getElementById('avoidFoods').value = '';
+                const msg = document.getElementById('successMsg');
+                msg.textContent = '🗑️ Cleared!';
+                msg.style.display = 'block';
+                setTimeout(() => {
+                    msg.style.display = 'none';
+                }, 1500);
+            }
+        }
+
+        setDate();
+    </script>
+</body>
+</html>
