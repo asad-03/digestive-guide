@@ -12,30 +12,105 @@
             box-sizing: border-box;
         }
         
+        /* Theme Variables - Serene Purple (Default) */
+        :root {
+            --color-primary: #B8A3D8;
+            --color-secondary: #6B5A7D;
+            --color-tertiary: #4DABAC;
+            --color-accent: #4DABAC;
+            --color-bg: #ffffff;
+            --color-bg-card: #ffffff;
+            --color-text-primary: #2a2a3a;
+            --color-text-secondary: #6B5A7D;
+            --color-text-muted: #9a9a9a;
+            --color-border: #d8c6f0;
+            --color-success: #4DABAC;
+            --color-warning: #E8A8A8;
+            --gradient-bg: linear-gradient(to bottom, #d8c6f0 0%, #b8d9d8 50%, #d8c6f0 100%);
+        }
+        
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-primary: #D8B8F0;
+                --color-secondary: #4B3A5D;
+                --color-tertiary: #6DD4D4;
+                --color-accent: #6DD4D4;
+                --color-bg: #1a1a2e;
+                --color-bg-card: #242838;
+                --color-text-primary: #f5f5f5;
+                --color-text-secondary: #cbd5e1;
+                --color-text-muted: #94a3b8;
+                --color-border: #3d3a5d;
+                --color-success: #6DD4D4;
+                --color-warning: #F5A8A8;
+                --gradient-bg: linear-gradient(to bottom, #1a1a2e 0%, #242838 50%, #1a1a2e 100%);
+            }
+        }
+        
+        /* Verdant Green Theme */
+        body.theme-verdant-green {
+            --color-primary: #3BAFCC;
+            --color-secondary: #217187;
+            --color-tertiary: #9EC91A;
+            --color-accent: #9EC91A;
+            --color-warning: #E8A8A8;
+            --gradient-bg: linear-gradient(to bottom, #d4f0f7 0%, #d9f3d4 50%, #fffbdb 100%);
+        }
+        
+        /* Coral Warmth Theme */
+        body.theme-coral-warmth {
+            --color-primary: #FF7B54;
+            --color-secondary: #FF5C2C;
+            --color-tertiary: #FFD4A3;
+            --color-accent: #B3D944;
+            --gradient-bg: linear-gradient(to bottom, #ffe0d4 0%, #ffc8a3 50%, #e8f5d4 100%);
+        }
+        
+        /* Ocean Calm Theme */
+        body.theme-ocean-calm {
+            --color-primary: #00395A;
+            --color-secondary: #004E5A;
+            --color-tertiary: #4DB8D4;
+            --color-accent: #4DB8D4;
+            --gradient-bg: linear-gradient(to bottom, #e0f2f7 0%, #b8e0e8 50%, #d4e8f0 100%);
+        }
+        
+        /* Pastel Harmony Theme */
+        body.theme-pastel-harmony {
+            --color-primary: #E8B4D0;
+            --color-secondary: #D89BA8;
+            --color-tertiary: #FFC8A3;
+            --color-accent: #F0E8B8;
+            --gradient-bg: linear-gradient(to bottom, #f5e8f0 0%, #e8d4c8 50%, #f0e8d4 100%);
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(to bottom, #fef3c7 0%, #dcfce7 50%, #fef3c7 100%);
-            color: #333;
+            background: var(--gradient-bg);
+            color: var(--color-text-primary);
+            transition: background 0.3s ease, color 0.3s ease;
         }
         
         header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: white;
-            border-bottom: 2px solid #86efac;
+            background: var(--color-bg);
+            border-bottom: 2px solid var(--color-accent);
             padding: 20px 16px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
         
         h1 {
-            color: #166534;
+            color: var(--color-primary);
             font-size: 24px;
             margin-bottom: 4px;
         }
         
         .date {
-            color: #65a30d;
+            color: var(--color-secondary);
             font-size: 12px;
         }
         
@@ -43,12 +118,13 @@
             position: sticky;
             top: 70px;
             z-index: 99;
-            background: white;
-            border-bottom: 1px solid #dcfce7;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
             display: flex;
             overflow-x: auto;
             gap: 4px;
             padding: 8px;
+            transition: all 0.3s ease;
         }
         
         .tab-btn {
@@ -56,7 +132,7 @@
             padding: 12px 16px;
             border: none;
             background: none;
-            color: #999;
+            color: var(--color-text-muted);
             font-weight: 500;
             font-size: 13px;
             cursor: pointer;
@@ -66,8 +142,8 @@
         }
         
         .tab-btn.active {
-            color: #166534;
-            border-bottom-color: #166534;
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
         }
         
         .content {
@@ -85,37 +161,39 @@
         }
         
         .info-box {
-            background: #dcfce7;
-            border: 1px solid #86efac;
+            background: rgba(0,0,0,0.02);
+            border: 1px solid var(--color-accent);
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 16px;
             font-size: 13px;
-            color: #166534;
+            color: var(--color-text-primary);
         }
         
         .card {
-            background: white;
-            border: 1px solid #dcfce7;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
             border-radius: 8px;
             margin-bottom: 12px;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
         
         .card-header {
-            background: linear-gradient(135deg, #dcfce7, #fef3c7);
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-tertiary));
             padding: 12px 16px;
-            border-bottom: 1px solid #dcfce7;
+            border-bottom: 1px solid var(--color-border);
+            color: white;
         }
         
         .card-header h3 {
-            color: #166534;
+            color: white;
             font-size: 16px;
             margin-bottom: 2px;
         }
         
         .card-header p {
-            color: #65a30d;
+            color: rgba(255,255,255,0.9);
             font-size: 12px;
         }
         
@@ -123,6 +201,7 @@
             padding: 12px 16px;
             font-size: 14px;
             line-height: 1.6;
+            color: var(--color-text-primary);
         }
         
         .card-body div {
@@ -130,12 +209,13 @@
         }
         
         .tip-box {
-            background: #fef3c7;
+            background: rgba(0,0,0,0.02);
             border-radius: 6px;
             padding: 8px;
             margin-top: 8px;
             font-size: 12px;
-            color: #92400e;
+            color: var(--color-text-primary);
+            border-left: 3px solid var(--color-accent);
         }
         
         .textarea-field {
@@ -146,24 +226,28 @@
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
-            color: #333;
+            color: var(--color-text-primary);
         }
         
         textarea {
             width: 100%;
             height: 80px;
             padding: 10px;
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--color-border);
             border-radius: 6px;
+            background: var(--color-bg-card);
+            color: var(--color-text-primary);
             font-family: inherit;
             font-size: 14px;
             resize: none;
             -webkit-appearance: none;
+            transition: all 0.3s ease;
         }
         
         textarea:focus {
             outline: none;
-            border-color: #22c55e;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
         }
         
         .button-group {
@@ -184,27 +268,29 @@
         }
         
         .btn-save {
-            background: #22c55e;
+            background: var(--color-accent);
             color: white;
         }
         
         .btn-save:active {
-            background: #16a34a;
+            transform: scale(0.98);
+            opacity: 0.8;
         }
         
         .btn-clear {
-            background: #fee2e2;
-            color: #dc2626;
+            background: var(--color-warning);
+            color: white;
         }
         
         .btn-clear:active {
-            background: #fecaca;
+            transform: scale(0.98);
+            opacity: 0.8;
         }
         
         .success {
-            background: #dcfce7;
-            border: 1px solid #86efac;
-            color: #166534;
+            background: var(--color-accent);
+            border: 1px solid var(--color-accent);
+            color: white;
             padding: 12px;
             border-radius: 6px;
             margin-bottom: 16px;
@@ -216,27 +302,105 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: white;
-            border-top: 1px solid #e5e7eb;
+            background: var(--color-bg);
+            border-top: 1px solid var(--color-border);
             padding: 12px;
             text-align: center;
             font-size: 12px;
-            color: #999;
+            color: var(--color-text-muted);
+            transition: all 0.3s ease;
         }
         
         .market-info {
-            background: #dbeafe;
-            border: 1px solid #93c5fd;
+            background: rgba(0,0,0,0.02);
+            border: 1px solid var(--color-accent);
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 16px;
             font-size: 13px;
-            color: #1e40af;
+            color: var(--color-text-primary);
         }
         
-        .meal-day {
+        .theme-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .theme-option {
+            padding: 16px;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            background: var(--color-bg-card);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        
+        .theme-option:active {
+            border-color: var(--color-primary);
+            transform: scale(0.98);
+        }
+        
+        .color-preview {
+            width: 100%;
+            height: 40px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+        
+        .theme-option span {
+            display: block;
             font-size: 13px;
-            line-height: 1.6;
+            font-weight: 500;
+            color: var(--color-text-primary);
+        }
+        
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .toggle-label {
+            flex: 1;
+            color: var(--color-text-primary);
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 28px;
+            background: var(--color-border);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .toggle-switch.active {
+            background: var(--color-accent);
+        }
+        
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: all 0.3s;
+        }
+        
+        .toggle-switch.active::after {
+            left: 24px;
         }
     </style>
 </head>
@@ -251,7 +415,7 @@
         <button class="tab-btn" onclick="switchTab('meals')">🍽️ Meals</button>
         <button class="tab-btn" onclick="switchTab('markets')">🛒 Buy</button>
         <button class="tab-btn" onclick="switchTab('tracking')">📝 Notes</button>
-        <button class="tab-btn" onclick="switchTab('tips')">💡 Tips</button>
+        <button class="tab-btn" onclick="switchTab('settings')">⚙️ Settings</button>
     </div>
 
     <div class="content">
@@ -260,9 +424,7 @@
             <div class="info-box">Each prayer time = eating/drinking cue</div>
             
             <div class="card">
-                <div class="card-header">
-                    <h3>Fajr (Pre-dawn)</h3>
-                </div>
+                <div class="card-header"><h3>Fajr (Pre-dawn)</h3></div>
                 <div class="card-body">
                     <div><strong>🍴 Food:</strong> 1-3 khajoor + honey water</div>
                     <div><strong>💧 Drink:</strong> Shahad pani (lukewarm)</div>
@@ -271,9 +433,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <h3>After Fajr (1-2 hrs later)</h3>
-                </div>
+                <div class="card-header"><h3>After Fajr (1-2 hrs later)</h3></div>
                 <div class="card-body">
                     <div><strong>🍴 Food:</strong> Dahi + khajoor OR Jau ka daliya</div>
                     <div><strong>💧 Drink:</strong> Sips of water</div>
@@ -282,9 +442,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <h3>Mid-morning</h3>
-                </div>
+                <div class="card-header"><h3>Mid-morning</h3></div>
                 <div class="card-body">
                     <div><strong>🍴 Food:</strong> Rest (no food)</div>
                     <div><strong>💧 Drink:</strong> Water only (sips)</div>
@@ -293,9 +451,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <h3>Dhuhr (Noon)</h3>
-                </div>
+                <div class="card-header"><h3>Dhuhr (Noon)</h3></div>
                 <div class="card-body">
                     <div><strong>🍴 Food:</strong> Kheera + Chawal + Dahi</div>
                     <div><strong>💧 Drink:</strong> Water (after 30 mins)</div>
@@ -304,9 +460,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <h3>Post-Dhuhr (2-3 hrs)</h3>
-                </div>
+                <div class="card-header"><h3>Post-Dhuhr (2-3 hrs)</h3></div>
                 <div class="card-body">
                     <div><strong>🍴 Food:</strong> Rest</div>
                     <div><strong>💧 Drink:</strong> Adrak chai OR Podina pani</div>
@@ -315,9 +469,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <h3>Asr (Late afternoon)</h3>
-                </div>
+                <div class="card-header"><h3>Asr (Late afternoon)</h3></div>
                 <div class="card-body">
                     <div><strong>🍴 Food:</strong> 2-3 khajoor</div>
                     <div><strong>💧 Drink:</strong> Saunf pani (fennel water)</div>
@@ -326,9 +478,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <h3>Maghrib (Sunset)</h3>
-                </div>
+                <div class="card-header"><h3>Maghrib (Sunset)</h3></div>
                 <div class="card-body">
                     <div><strong>🍴 Food:</strong> Date + small cup milk</div>
                     <div><strong>💧 Drink:</strong> Milk or water</div>
@@ -337,9 +487,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <h3>After Maghrib (1-2 hrs)</h3>
-                </div>
+                <div class="card-header"><h3>After Maghrib (1-2 hrs)</h3></div>
                 <div class="card-body">
                     <div><strong>🍴 Food:</strong> MAIN MEAL: Daal + Roti + Sabzi</div>
                     <div><strong>💧 Drink:</strong> Small sips of water</div>
@@ -348,9 +496,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <h3>Isha (Night)</h3>
-                </div>
+                <div class="card-header"><h3>Isha (Night)</h3></div>
                 <div class="card-body">
                     <div><strong>🍴 Food:</strong> Herbal tea only</div>
                     <div><strong>💧 Drink:</strong> Podina chai (mint tea)</div>
@@ -359,9 +505,7 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <h3>Before Sleep (3-4 hrs after meal)</h3>
-                </div>
+                <div class="card-header"><h3>Before Sleep (3-4 hrs)</h3></div>
                 <div class="card-body">
                     <div><strong>🍴 Food:</strong> Nothing</div>
                     <div><strong>💧 Drink:</strong> Water only if thirsty</div>
@@ -376,7 +520,7 @@
 
             <div class="card">
                 <div class="card-header"><h3>Monday</h3></div>
-                <div class="card-body meal-day">
+                <div class="card-body">
                     <div><strong>🌅 Breakfast:</strong> Dahi + 3-4 khajoor + honey</div>
                     <div><strong>☀️ Lunch:</strong> Chawal + Saag + Dahi</div>
                     <div><strong>🌙 Dinner:</strong> Masoor ki daal + Roti</div>
@@ -385,7 +529,7 @@
 
             <div class="card">
                 <div class="card-header"><h3>Tuesday</h3></div>
-                <div class="card-body meal-day">
+                <div class="card-body">
                     <div><strong>🌅 Breakfast:</strong> Dahi + khajoor + toast</div>
                     <div><strong>☀️ Lunch:</strong> Kheera + Tamatar + Ande + Chawal</div>
                     <div><strong>🌙 Dinner:</strong> Channa daal + Saag</div>
@@ -394,7 +538,7 @@
 
             <div class="card">
                 <div class="card-header"><h3>Wednesday</h3></div>
-                <div class="card-body meal-day">
+                <div class="card-body">
                     <div><strong>🌅 Breakfast:</strong> Jau ka daliya + khajoor</div>
                     <div><strong>☀️ Lunch:</strong> Jau pani + Sabzi + Paneer</div>
                     <div><strong>🌙 Dinner:</strong> Moong daal + Roti</div>
@@ -403,7 +547,7 @@
 
             <div class="card">
                 <div class="card-header"><h3>Thursday</h3></div>
-                <div class="card-body meal-day">
+                <div class="card-body">
                     <div><strong>🌅 Breakfast:</strong> Doodh + khajoor + honey</div>
                     <div><strong>☀️ Lunch:</strong> Sabzi + Chawal + Dahi</div>
                     <div><strong>🌙 Dinner:</strong> Lobia qorma + Roti</div>
@@ -412,7 +556,7 @@
 
             <div class="card">
                 <div class="card-header"><h3>Friday</h3></div>
-                <div class="card-body meal-day">
+                <div class="card-body">
                     <div><strong>🌅 Breakfast:</strong> Jau ka daliya + dahi</div>
                     <div><strong>☀️ Lunch:</strong> Daal shorba + Chawal</div>
                     <div><strong>🌙 Dinner:</strong> Masoor daal + Palak</div>
@@ -421,7 +565,7 @@
 
             <div class="card">
                 <div class="card-header"><h3>Saturday</h3></div>
-                <div class="card-body meal-day">
+                <div class="card-body">
                     <div><strong>🌅 Breakfast:</strong> Khajoor + shahad pani</div>
                     <div><strong>☀️ Lunch:</strong> Kheera + Tamatar + Chawal</div>
                     <div><strong>🌙 Dinner:</strong> Murgh (light) + Roti</div>
@@ -430,7 +574,7 @@
 
             <div class="card">
                 <div class="card-header"><h3>Sunday</h3></div>
-                <div class="card-body meal-day">
+                <div class="card-body">
                     <div><strong>🌅 Breakfast:</strong> Dahi + jau + khajoor</div>
                     <div><strong>☀️ Lunch:</strong> Sabzi ka chawal</div>
                     <div><strong>🌙 Dinner:</strong> Sabzi qorma + Roti</div>
@@ -551,45 +695,55 @@
             </div>
         </div>
 
-        <!-- TIPS -->
-        <div id="tips" class="tab-content">
-            <div class="card">
-                <div class="card-header">
-                    <h3>🔥 May 15 - Aug 31</h3>
-                    <p>HARDEST SEASON</p>
-                </div>
-                <div class="card-body">
-                    Lightest eating. Eat ONLY early morning (before 8am) & after sunset. Maximum hydration with Shahad pani, Saunf pani, Podina chai.
+        <!-- SETTINGS -->
+        <div id="settings" class="tab-content">
+            <h2 style="color: var(--color-primary); margin-bottom: 16px;">⚙️ Customize Your App</h2>
+            
+            <div style="margin-bottom: 24px;">
+                <h3 style="color: var(--color-text-primary); margin-bottom: 12px; font-size: 16px;">🎨 Choose Your Theme</h3>
+                <div class="theme-grid">
+                    <button class="theme-option" onclick="setTheme('serene-purple')">
+                        <div class="color-preview" style="background: linear-gradient(to right, #B8A3D8, #4DABAC)"></div>
+                        <span>Serene Purple</span>
+                    </button>
+                    
+                    <button class="theme-option" onclick="setTheme('verdant-green')">
+                        <div class="color-preview" style="background: linear-gradient(to right, #3BAFCC, #9EC91A)"></div>
+                        <span>Verdant Green</span>
+                    </button>
+                    
+                    <button class="theme-option" onclick="setTheme('coral-warmth')">
+                        <div class="color-preview" style="background: linear-gradient(to right, #FF7B54, #B3D944)"></div>
+                        <span>Coral Warmth</span>
+                    </button>
+                    
+                    <button class="theme-option" onclick="setTheme('ocean-calm')">
+                        <div class="color-preview" style="background: linear-gradient(to right, #00395A, #4DB8D4)"></div>
+                        <span>Ocean Calm</span>
+                    </button>
+                    
+                    <button class="theme-option" onclick="setTheme('pastel-harmony')">
+                        <div class="color-preview" style="background: linear-gradient(to right, #E8B4D0, #F0E8B8)"></div>
+                        <span>Pastel Harmony</span>
+                    </button>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h3>✅ Dec 15 - Feb 28</h3>
-                    <p>BEST SEASON</p>
+            <div>
+                <h3 style="color: var(--color-text-primary); margin-bottom: 12px; font-size: 16px;">🌓 Dark Mode</h3>
+                <div class="dark-mode-toggle">
+                    <span class="toggle-label">Use Dark Mode</span>
+                    <div class="toggle-switch" id="darkModeToggle" onclick="toggleDarkMode()"></div>
                 </div>
-                <div class="card-body">
-                    Can eat normally. Saag & Sarso at peak (cheapest). Enjoy root vegetables. Winter = best digestion.
-                </div>
+                <p style="font-size: 12px; color: var(--color-text-secondary); margin-top: 8px;">
+                    Automatically follows your system settings. Tap to override.
+                </p>
             </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h3>⚡ Sept-Nov & Mar-Apr</h3>
-                    <p>TRANSITION MONTHS</p>
-                </div>
-                <div class="card-body">
-                    Gradually adjust portions as weather changes. Recovery period - good time to reset digestion.
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3>⚠️ When to See a Hakim</h3>
-                </div>
-                <div class="card-body">
-                    If bloating/gas/cramping persists <strong>beyond 2 weeks</strong> of following this plan → consult a Hakim (Unani practitioner) in Anarkali area. They specialize in heat-related digestion issues.
-                </div>
+            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--color-border);">
+                <p style="font-size: 12px; color: var(--color-text-muted); text-align: center;">
+                    ✨ All your preferences are saved locally on your phone
+                </p>
             </div>
         </div>
     </div>
@@ -599,12 +753,62 @@
     </footer>
 
     <script>
+        // Initialize
+        function init() {
+            setDate();
+            loadNotes();
+            initTheme();
+            initDarkMode();
+        }
+
+        // Set today's date
         function setDate() {
             const options = { weekday: 'long', month: 'short', day: 'numeric' };
             const today = new Date().toLocaleDateString('en-PK', options);
             document.getElementById('dateDisplay').textContent = 'Lahore • ' + today;
         }
 
+        // Theme Management
+        function setTheme(themeName) {
+            document.body.className = themeName !== 'serene-purple' ? `theme-${themeName}` : '';
+            localStorage.setItem('selectedTheme', themeName);
+        }
+
+        function initTheme() {
+            const saved = localStorage.getItem('selectedTheme') || 'serene-purple';
+            setTheme(saved);
+        }
+
+        // Dark Mode Management
+        function toggleDarkMode() {
+            const toggle = document.getElementById('darkModeToggle');
+            const isDark = toggle.classList.contains('active');
+            
+            if (isDark) {
+                toggle.classList.remove('active');
+                document.documentElement.style.colorScheme = 'light';
+                localStorage.setItem('darkModeOverride', 'light');
+            } else {
+                toggle.classList.add('active');
+                document.documentElement.style.colorScheme = 'dark';
+                localStorage.setItem('darkModeOverride', 'dark');
+            }
+        }
+
+        function initDarkMode() {
+            const override = localStorage.getItem('darkModeOverride');
+            const toggle = document.getElementById('darkModeToggle');
+            
+            if (override === 'dark' || (!override && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                toggle.classList.add('active');
+                document.documentElement.style.colorScheme = 'dark';
+            } else {
+                toggle.classList.remove('active');
+                document.documentElement.style.colorScheme = 'light';
+            }
+        }
+
+        // Tab Switching
         function switchTab(tabName) {
             const tabs = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => tab.classList.remove('active'));
@@ -620,6 +824,7 @@
             }
         }
 
+        // Notes Management
         function saveNotes() {
             const notes = {
                 triggers: document.getElementById('triggers').value,
@@ -670,7 +875,8 @@
             }
         }
 
-        setDate();
+        // Start
+        init();
     </script>
 </body>
 </html>
